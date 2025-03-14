@@ -35,19 +35,20 @@ class ProductoTest {
 	@DisplayName("Validación Método setPrecio si un precio es negativo")
 	void testSetPrecioNegativo() {
 		double precioNegativo = -50.00;
-		Exception exception = assertThrows(IllegalArgumentException.class, ()-> producto.setPrecio(precioNegativo));
+		Exception exception = assertThrows(IllegalArgumentException.class, ()-> producto.setPrecio(precioNegativo)); //Este nuevo producto no se guarda en ningún lado / no se crea / se lanza la excepción
 		String mensajeEsperado = "El precio no puede ser negativo: " + precioNegativo;
 		assertEquals(mensajeEsperado, exception.getMessage());
 	}
 	@Test
-	@DisplayName("Validación Constructor negativo")
+	@DisplayName("Validación Constructor negativo - Lanzar excepción")
 	void testConstructor() {
 		double precio = -100.00;
-		Exception exception = assertThrows(IllegalArgumentException.class, ()->new Producto("tienda", precio));
+		//Objetio de tipo Exception (Excepción)
+		Exception exception = assertThrows(IllegalArgumentException.class, ()->{new Producto("tienda", precio);});
 		String mensajeEsperado = "El precio no puede ser negativo: " + precio;
 		assertEquals(mensajeEsperado, exception.getMessage());
 	}
-	
+
 	@Test
 	@DisplayName("Validación Método getNombre")
 	void testGetNombre() {
@@ -57,12 +58,23 @@ class ProductoTest {
 	}
 	
 	@Test
-	@DisplayName("Validación Método setNombre")
+	@DisplayName("Prueba de Validación del Método setNombre")
 	void testSetNombre() {
 		String nombreEsperado = "hamaca";
 		producto.setNombre(nombreEsperado);
 		String nombreResultado = producto.getNombre();
 		assertEquals(nombreEsperado, nombreResultado);
 	}
+	
+	/**
+	 * @Test
+	 * @DisplayName()
+	 * void testCrearProductoValido(){
+	 * 		String nombreEsperado = "tienda";
+	 * 		double precioEsperado = 100.00;
+	 * 
+	 * 		assertEquals(nombreEsperado, producto.getNombre());
+	 * 		assertEquals(nombreEsperado, producto.getPrecio());
+	 */
 
 }

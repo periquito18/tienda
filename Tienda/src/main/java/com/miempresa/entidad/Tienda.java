@@ -11,7 +11,7 @@ import java.util.List;
 public class Tienda {
     private List<Producto> productos;
 
-  
+ 
     public Tienda() {
         this.productos = new ArrayList<>();
     }
@@ -28,6 +28,7 @@ public class Tienda {
 
 
     public double calcularPrecioTotal() {
+    	//¿Qué hace esta línea? -- Es como un for (Sumatorio) -- Devuelve la suma de todos los precios (double)
         return productos.stream().mapToDouble(Producto::getPrecio).sum();
     }
 }
