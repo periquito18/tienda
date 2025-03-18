@@ -11,7 +11,10 @@ import java.util.List;
 public class Tienda {
     private List<Producto> productos;
 
- 
+
+    /**
+     * 
+     */
     public Tienda() {
         this.productos = new ArrayList<>();
     }
